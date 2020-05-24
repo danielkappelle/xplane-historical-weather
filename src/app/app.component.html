@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="jumbotron mt-3">
+    <h1>X-Plane 11 Historical weather data</h1>
+    <h2>1. Download METAR files</h2>
+    <p>Head over to <a href="https://mesonet.agron.iastate.edu/request/download.phtml">this website</a> and download the
+      files you want. Specify stations and data range as desired. Leave all settings at default settings. If you want
+      stations from multiple countries, you can download them as separate files and upload them all here.</p>
+
+    <h2>2. Upload METAR files</h2>
+    <form>
+      <input type="file" multiple (change)="fileChanged($event)" class="mb-3">
+    </form>
+    <div class="card mb-3" *ngIf="files?.length">
+      <div class="card-body">
+        <ul>
+          <li *ngFor="let file of files">{{file.name}} - {{file.size | fileSize}} - <a [routerLink]="" (click)="$event.stopPropagation(); removeFile(file)">[Remove]</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>3. Convert</h2>
+    <p *ngIf="!files || !files.length">Please upload metar files first</p>
+    <button class="btn btn-primary mb-3" *ngIf="files?.length" (click)="convert()">Convert!</button>
+
+    <h2>4. Download</h2>
+    <p *ngIf="!rwxFile">Please convert first</p>
+    <p *ngIf="rwxFile">Download your .rwx file</p>
+    <button class="btn btn-primary" *ngIf="rwxFile" (click)="download()">Download!</button>
+  </div>
+</div>
