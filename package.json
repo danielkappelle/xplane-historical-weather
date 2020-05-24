@@ -1,6 +1,6 @@
 {
   "name": "xplane-historical-weather",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": "Daniel Kappelle <daniel.kappelle@gmail.com>",
   "scripts": {
     "ng": "ng",
@@ -8,7 +8,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "docker:build": "docker build -t `cat ./docker-registry`/$npm_package_name:$npm_package_version .",
+    "docker:push": "docker push `cat ./docker-registry`/$npm_package_name:$npm_package_version",
+    "docker:all": "npm run docker:build && npm run docker:push"
   },
   "private": true,
   "dependencies": {

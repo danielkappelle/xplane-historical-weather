@@ -2,7 +2,8 @@
   <div class="jumbotron mt-3">
     <h1>X-Plane 11 Historical weather data</h1>
     <h2>1. Download METAR files</h2>
-    <p>Head over to <a href="https://mesonet.agron.iastate.edu/request/download.phtml">this website</a> and download the
+    <p>Head over to <a href="https://mesonet.agron.iastate.edu/request/download.phtml" target="_NEW">this website</a>
+      and download the
       files you want. Specify stations and data range as desired. Leave all settings at default settings. If you want
       stations from multiple countries, you can download them as separate files and upload them all here.</p>
 
@@ -13,7 +14,8 @@
     <div class="card mb-3" *ngIf="files?.length">
       <div class="card-body">
         <ul>
-          <li *ngFor="let file of files">{{file.name}} - {{file.size | fileSize}} - <a [routerLink]="" (click)="$event.stopPropagation(); removeFile(file)">[Remove]</a></li>
+          <li *ngFor="let file of files">{{file.name}} - {{file.size | fileSize}} - <a [routerLink]=""
+              (click)="$event.stopPropagation(); removeFile(file)">[Remove]</a></li>
         </ul>
       </div>
     </div>
@@ -26,5 +28,14 @@
     <p *ngIf="!rwxFile">Please convert first</p>
     <p *ngIf="rwxFile">Download your .rwx file</p>
     <button class="btn btn-primary" *ngIf="rwxFile" (click)="download()">Download!</button>
+
+    <h4>About</h4>
+    <p>February 9th, 2020, hurricane Ciara put me in quite a shake as my plane from Spain landed at Schiphol airport. I
+      wanted to be able to attempt that landing in X-Plane 11 with the same weather, so I needed a way to get the
+      weather in. I found that there was no proper way to do it, although I did find the website from <em>Iowa State
+        University</em> which had historical METAR files.</p>
+    <p>Hopefully, this tool helps you flying in historical weather! Happy flying ✈</p>
+    <p>Please, post any questions, issues, PRs on <a href="https://github.com/danielkappelle/xplane-historical-weather" target="_NEW">Github</a>.</p>
+    <p><span class="text-muted">Daniel Kappelle - 2020</span></p>
   </div>
 </div>
