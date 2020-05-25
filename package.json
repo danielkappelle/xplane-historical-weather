@@ -1,6 +1,6 @@
 {
   "name": "xplane-historical-weather",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Daniel Kappelle <daniel.kappelle@gmail.com>",
   "scripts": {
     "ng": "ng",
